@@ -1,0 +1,31 @@
+<table class="table table-bordered table-striped">
+	<thead>
+	<tr>
+		<th>id</th>
+		<th>name</th>
+		<th>price</th>
+		<th>view / edit</th>
+	</tr>
+	</thead>
+	<tr *ngFor="let widget of widgets">
+		<td>{{widget.id}}</td>
+		<td>{{widget.name}}</td>
+		<td>{{widget.price | currency}}</td>
+		<td><a href="#"  (click)="onSelect(widget)">view / edit</a></td>
+	</tr>
+</table>
+
+<div *ngIf="selectedWidget">
+	hahaha
+	<h2>{{ selectedWidget.name }} Details</h2>
+	<div><span>id: </span>{{selectedWidget.id}}</div>
+	<div>
+		<label>username:
+			<input [(ngModel)]="selectedWidget.name" placeholder="name">
+		</label>
+		<label>password:
+			<input [(ngModel)]="selectedWidget.price" placeholder="price">
+		</label>
+	</div>
+
+</div>
